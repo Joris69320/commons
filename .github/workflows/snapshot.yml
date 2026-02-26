@@ -1,4 +1,4 @@
-name: Java CI with Maven for snapshot
+name: Build snapshot
 on:
   push:
     branches:
@@ -6,6 +6,7 @@ on:
   pull_request:
     branches:
       - develop
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
