@@ -7,7 +7,7 @@ permissions:
   contents: write
 jobs:
   release:
-    if: ${{ !startsWith(github.event.head_commit.message, '[RELEASE]:') }}
+    if: ${{ !startsWith(github.event.head_commit.message, '[RELEASE]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
           git config user.name "release-bot"
           git config user.email "release-bot@users.noreply.github.com"
           git add -A
-          git commit -m "[RELEASE]: ${{ steps.ver.outputs.tag }}"
+          git commit -m "[RELEASE] ${{ steps.ver.outputs.tag }}"
           git push
       - name: Build
         run: mvn -B clean package
